@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     userRoledb: {
-        value: [],
+        values: [],
         userRoleMap: {}
     },
     userRole: 0

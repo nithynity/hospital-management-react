@@ -21,7 +21,7 @@ const Login = (props) => {
             <label>Password</label>
             <input className="inputdefault" name="password"></input><br></br>
             <label>UserType</label>
-            {/*<select id="userRole"
+            <select id="userRole"
                 name="userRole"
                 value={loginState.userRole} onChange={handleChange}>
                 {
@@ -31,7 +31,7 @@ const Login = (props) => {
                         )
                     })
                 }
-            </select><br></br>*/}
+            </select><br></br>
             <button className="inputdefault">Login</button>
         </div>
     );
