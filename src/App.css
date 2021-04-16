@@ -54,6 +54,12 @@ label {
     width: 100%;
     font-size: calc(10px + 2vmin);
 }
-Button{
- align-items:center; 
+.button
+{
+  text-align:center;
+  margin-left:100px;
+  margin-top:70px;
+  font-size: calc(10px + 2vmin);
+
+
 }

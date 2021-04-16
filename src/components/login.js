@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {loadUserRoles,fieldChange} from '../store/action/login-action';
+import { loadUserRoles, fieldChange, validateLogin } from '../store/action/login-action';
 
 const Login = (props) => {
     const loginState = useSelector(state => state.login);
-    console.log("userrole"+loginState.userRole);
     const dispatch = useDispatch();
     useEffect(
         () => dispatch(loadUserRoles()),
@@ -13,13 +12,18 @@ const Login = (props) => {
     function handleChange(event) {
         dispatch(fieldChange(event.target.name, event.target.value));
     }
+    function authentication() {
+        dispatch(validateLogin());
+    }
+
+
     return (
         <div className="loginPage">
-            <hl className="margin-top: 80px">Login</hl><br></br>
+            <h1>Login</h1><br></br>
             <label className="inputdefault">UserName</label>
-            <input className="inputdefault" name="username"></input><br></br>
+            <input className="inputdefault" name="username" onChange={handleChange}></input><br></br>
             <label>Password</label>
-            <input className="inputdefault" name="password"></input><br></br>
+            <input className="inputdefault" name="password" onChange={handleChange}></input><br></br>
             <label>UserType</label>
             <select id="userRole"
                 name="userRole"
@@ -27,12 +31,12 @@ const Login = (props) => {
                 {
                     loginState.userRoledb.values.map((item, i) => {
                         return (
-                            <option key={i} value={item.userTyprId}>{item.userType}</option>
+                            <option key={i} value={item.userTypeId}>{item.userType}</option>
                         )
                     })
                 }
             </select><br></br>
-            <button className="inputdefault">Login</button>
+            <button className="button" onClick={authentication}>Login</button>
         </div>
     );
 }
